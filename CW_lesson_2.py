@@ -17,7 +17,7 @@ kernel = np.ones((5, 5), np.uint8())
 image = cv2.dilate(image, kernel, 1)  # Розширює світлі області на зоображені.
 image = cv2.erode(image, kernel, 1)  # Розширює темні області на зоображені.
 
-image = cv2.imwrite('car.jpg', image)
+image = cv2.imwrite('result/forest.jpg', image)
 
 cv2.imshow('Image', image)
 
