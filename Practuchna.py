@@ -45,10 +45,16 @@ for color_name, color_contours in contours.items():
     for cnts in color_contours:
         if cv2.contourArea(cnts) < 600:
             continue
+
         x, y, w, h = cv2.boundingRect(cnts)
+
         cv2.rectangle(image_original, (x, y), (x + w, y + h),
                       colors_simple[color_name], 2)
-        cv2.putText(image_original, f"{color_name} candy", (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, colors_simple[color_name], 2)
+
+        cv2.putText(image_original, f"{color_name} candy", (x, y - 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6,
+                    colors_simple[color_name], 2)
+
         cv2.drawContours(image_original,
                          [cnts], -1,
                          colors_simple[color_name], 2)
